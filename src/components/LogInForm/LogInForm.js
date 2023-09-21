@@ -1,3 +1,5 @@
+//import logomod3 from '../../assets/logomod3.png'
+
 import { useState } from 'react';
 import {login} from '../../utilities/users-service';
 
@@ -33,7 +35,6 @@ async function handleSubmit(evt) {
 return (
   <div>
     <div className="form-container" onSubmit={handleSubmit}>
-
       <form autoComplete="off" >
         <label>Email</label>
         <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
