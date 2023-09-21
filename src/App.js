@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import NewOrderPage from './pages/NewOrderPage';
 import AuthPage from './pages/AuthPage';
@@ -34,6 +34,7 @@ function App() {
       <Routes>
         <Route path='/orders/new' element={ <NewOrderPage /> }/>
         <Route path='/orders' element={ <OrderHistoryPage /> }/>
+        <Route path='/*' element={<Navigate to='/orders/new' />} />
         <Route path='/create' element={<Create />}/>
         <Route path='/checkout' element={<Checkout />}/>
         <Route path='/foodCatalog' element={<FoodCatalog />}/>
