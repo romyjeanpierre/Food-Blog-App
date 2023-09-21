@@ -7,7 +7,7 @@ function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <main className="AuthPage">
+    <div>
       <h1>Auth Page</h1>
 
       <button onClick={() => setShowLogin(!showLogin)}>
@@ -19,7 +19,7 @@ function AuthPage({ setUser }) {
       ) : (
         <SignUpForm setUser={setUser} />
       )}
-    </main>
+    </div>
   );
 }
 
