@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import NewOrderPage from './pages/NewOrderPage';
 import AuthPage from './pages/AuthPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Create from './components/create/Create';
 import Checkout from './components/checkout/Checkout';
 import FoodCatalog from './components/foodCatalog/FoodCatalog';
