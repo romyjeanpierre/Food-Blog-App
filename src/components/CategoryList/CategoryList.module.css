@@ -19,7 +19,7 @@
     }
     
     .CategoryList li.active {
-        color: var(--text-dark);
-background-color: var(--tan-1);
-border: .1vmin solid var(--tan-3);
-}
+    color: var(--text-dark);
+    background-color: var(--tan-1);
+    border: .1vmin solid var(--tan-3);
+    }

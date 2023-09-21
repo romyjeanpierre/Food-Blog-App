@@ -1,28 +1,26 @@
-import { useState } from "react";
-//import logomod3 from '../../public/logomod3.jpg'
 
+//import logomod3 from '../../../assets/logomod3.png'
 import SignUpForm from "../components/SignUpForm/SignUpForm";
 import LoginForm from "../components/LogInForm/LogInForm";
+import {useState} from 'react'
+import styles from './AuthPage.module.css';
+// import Logo from '../components/Logo/Logo.js';
 
-function AuthPage({ setUser }) {
-  const [showLogin, setShowLogin] = useState(true);
-
-  return (
-    <div>
-      <img src={process.env.PUBLIC_URL + './logomod3.jpg'} />
-      <h3 className='text-4xl font-bold inline border-b-4 border-cyan-500'>Register or Sign In </h3>
-
-      <button onClick={() => setShowLogin(!showLogin)}>
-        {showLogin ? "Sign up" : "Sign in"}
-      </button>
-
-      {showLogin ? (
-        <LoginForm setUser={setUser} />
-      ) : (
-        <SignUpForm setUser={setUser} />
-      )}
-    </div>
-  );
+function AuthPage({setUser}){
+    const [showLogin, setShowLogin] = useState(true)
+    return(
+        <main className ={styles.AuthPage}>
+        <div>
+           
+            <h3 onClick={()=> setShowLogin(!showLogin)}> {showLogin ? "Sign Up" : "Log In"}</h3>
+           { showLogin ? 
+           
+           (<LoginForm setUser={setUser}/> ) :
+           (<SignUpForm setUser={setUser}/>) 
+           }
+        </div>
+        </main>
+    )
 }
 
 export default AuthPage;

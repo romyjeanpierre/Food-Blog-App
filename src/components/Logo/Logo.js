@@ -5,7 +5,7 @@ export default function Logo() {
 return (
   <div className={styles.Logo}>
     <img src={logomod3} />
-    <div>Market Place</div>
+    <div>RommY</div>
   </div>
 );
 }
