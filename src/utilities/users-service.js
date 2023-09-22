@@ -14,6 +14,14 @@ export async function login(credentials){
   return getUser();
 }
 
+export async function deleteUser(id) {
+  usersApi.deleteUser(id)
+}
+
+export async function updateUserPassword(userData, id){
+  usersApi.updateUserPassword(userData, id)
+}
+
 export async function logOut(){
   localStorage.removeItem('Token')
 }

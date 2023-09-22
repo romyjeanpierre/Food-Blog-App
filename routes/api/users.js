@@ -6,13 +6,16 @@ const usersCtrl = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-//* POST 
+
+
 router.post('/', usersCtrl.create);
 
 router.post('/login', usersCtrl.login);
 
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
-
+router.delete('/deleteUser/:id', usersCtrl.deleteUser);
+router.put('/:id', usersCtrl.updateUserPassword);
+router.put('/:id', usersCtrl.updateUserPassword)
 
 
 module.exports = router;

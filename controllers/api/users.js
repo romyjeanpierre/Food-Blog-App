@@ -2,34 +2,36 @@
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 6
 
-//* /*-- Helper Functions to create JWT Token--*/
-function createJWT(user) {
-    return jwt.sign({user}, process.env.SECRET, {expiresIn: '24h'});
-}
 
+//*Create a new User
 async function create(req, res) {
     // console.log('[From POST handler]', req.body)
     try {
-        //* creating a new user
+        // creating a new user in the DB
         const user = await User.create(req.body);
         console.log(user);
 
-        //* creating a new jwt
+        // creating a new jwt
         const token = createJWT(user);
-
         res.json(token);
-        
-    } catch (error) {
+         } catch (error) {
         console.log(error);
         res.status(400).json(error)
     }
 }
 
+//* delete user
+async function deleteUser(req,res) {
+    const {id} = req.params
+    await User.findByIdAndDelete(id)
+}
 
+//*Login
 async function login(req, res) {
     try {
-        // find user in db
+        // find user in db by email
       const user = await User.findOne({ email: req.body.email });
       // check if we found an user
       if (!user) throw new Error();
@@ -43,6 +45,16 @@ async function login(req, res) {
       res.status(400).json('Bad Credentials');
     }
   }
+//* Update User's password
+async function updateUserPassword(req, res){
+    const {id} = res.params
+    req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS)
+    try {
+        await User.findByIdAndUpdate(id, req.body)
+    }catch (error) {
+        console.log('Update failed', error); 
+    }
+}
 
 
 async function checkToken(req, res) {
@@ -50,9 +62,15 @@ async function checkToken(req, res) {
     res.json(req.exp)
 }
 
+//* /*-- Helper Functions to create JWT Token--*/
+function createJWT(user) {
+    return jwt.sign({user}, process.env.SECRET, {expiresIn: '24h'});
+}
 
 module.exports = {
     create,
     login,
-    checkToken
+    checkToken,
+    deleteUser, 
+    updateUserPassword,
 }

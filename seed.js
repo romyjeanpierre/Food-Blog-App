@@ -8,20 +8,20 @@ const Item = require('./models/item');
 
   await Category.deleteMany({});
   const categories = await Category.create([
-    {name: 'Breakfast', sortOrder:10},
-    {name: 'Desserts', sortOrder: 20},
-    {name: 'Diner', sortOrder:30},
-    {name: 'Drinks', sortOrder: 40},
-    {name: 'Italian', sortOrder: 50},
-    {name: 'Mexican', sortOrder: 60},
-    {name: 'Sandwiches', sortOrder: 70},
-    {name: 'Seafood', sortOrder: 80},
-    {name: 'Sides', sortOrder: 90},
+    {name: 'Produce', sortOrder:10},
+    {name: 'Frozen', sortOrder: 20},
+    {name: 'Meat', sortOrder:30},
+    {name: 'Snacks & Candy', sortOrder: 40},
+    {name: 'Deli', sortOrder: 50},
+    {name: 'Dairy', sortOrder: 60},
+    {name: 'Seafood', sortOrder: 70},
+    {name: 'Bakery', sortOrder: 80},
+    {name: 'Beverages', sortOrder: 90},
   ]);
 
   await Item.deleteMany({});
   const items = await Item.create([
-    {name: 'Hamburger', emoji: '🍔', category: categories[2], price: 5.95},
+    {name: 'cucumber', emoji: '🍔', category: categories[2], price: 5.95},
     {name: 'Noodles', emoji: '🍜',  category: categories[2], price: 11.95},
     {name: 'Fried Rice', emoji: '🍘', category: categories[2], price: 9.95},
     {name: 'Jollof Rice', emoji: '🍛', category: categories[2], price: 9.95},

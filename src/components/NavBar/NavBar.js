@@ -9,7 +9,13 @@ function NavBar({ user, setUser }) {
   const handleLogOut = () => {
     usersService.logOut();
     setUser(null);
-  };
+  }
+
+  const deleteUser = () =>{
+    usersService.logOut()
+    usersService.deleteUser(user._id)
+  }
+
   return (
     <nav className={styles.NavBar}>
       <img
@@ -22,9 +28,11 @@ function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/orders/new">New Order</Link> 
       &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>
-        Logout
-      </Link>
+      <Link to="" onClick={handleLogOut}>Logout</Link>
+      &nbsp; | &nbsp;
+      <Link to='updateUserPassword'>Update Account</Link>
+      &nbsp; | &nbsp;
+      <Link to='' onClick={deleteUser}>Delete Account </Link>
     </nav>
   );
 }
