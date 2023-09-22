@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {signUp} from '../../utilities/users-service';
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm({setUser}) {
   const [formData, setFormData] = useState({
@@ -10,7 +11,10 @@ function SignUpForm({setUser}) {
     error: "",
   });
 
+  const navigate = useNavigate()
   const disable = formData.password !== formData.confirm;
+
+  
 
   const handleSubmit = async (e) => { 
     e.preventDefault(); 

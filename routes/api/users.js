@@ -15,7 +15,7 @@ router.post('/login', usersCtrl.login);
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 router.delete('/deleteUser/:id', usersCtrl.deleteUser);
 router.put('/:id', usersCtrl.updateUserPassword);
-router.put('/:id', usersCtrl.updateUserPassword)
+
 
 
 module.exports = router;

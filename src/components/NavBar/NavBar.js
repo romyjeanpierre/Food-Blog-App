@@ -28,6 +28,8 @@ function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/orders/new">New Order</Link> 
       &nbsp; | &nbsp;
+      <Link to="/items/new">Create Grocery Item</Link> 
+      &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Logout</Link>
       &nbsp; | &nbsp;
       <Link to='updateUserPassword'>Update Account</Link>

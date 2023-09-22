@@ -2,7 +2,8 @@ const Item = require('../../models/item');
 
 module.exports = {
   index,
-  show
+  show,
+  create,
 };
 
 async function index(req, res) {
@@ -23,4 +24,16 @@ async function show(req, res) {
   }catch(e){
     res.status(400).json({ msg: e.message });
   }  
+}
+
+//create a new grocery item
+async function create(req, res) {
+  console.log(req.body); 
+  try{
+    const groceryItem = await Item.create(req.body); 
+    res.json(groceryItem); 
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err)
+  }
 }
