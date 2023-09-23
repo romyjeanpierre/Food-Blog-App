@@ -1,7 +1,6 @@
 import * as usersApi from './users-api'
 
 export async function signUp(userData){
-
 //calling the user-api signUp function
 const token = await usersApi.signUp(userData)
 localStorage.setItem('Token', token)
@@ -47,6 +46,7 @@ export function getToken() {
     return token;
     }
     
+
     export function getUser() {
     const token = getToken();
     // If there's a token, return the user in the payload, otherwise return null

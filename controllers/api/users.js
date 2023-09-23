@@ -22,10 +22,22 @@ async function create(req, res) {
     }
 }
 
-//* delete user
+//* delete user from DB 
 async function deleteUser(req,res) {
     const {id} = req.params
     await User.findByIdAndDelete(id)
+}
+
+
+//* Update User's password
+async function updateUserPassword(req, res){
+    const {id} = res.params
+    req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS)
+    try {
+        await User.findByIdAndUpdate(id, req.body)
+    }catch (error) {
+        console.log('Update failed', error); 
+    }
 }
 
 //*Login
@@ -45,20 +57,9 @@ async function login(req, res) {
       res.status(400).json('Bad Credentials');
     }
   }
-//* Update User's password
-async function updateUserPassword(req, res){
-    const {id} = res.params
-    req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS)
-    try {
-        await User.findByIdAndUpdate(id, req.body)
-    }catch (error) {
-        console.log('Update failed', error); 
-    }
-}
-
 
 async function checkToken(req, res) {
-    console.log(req.user);
+    console.log("req.user", req.user);
     res.json(req.exp)
 }
 

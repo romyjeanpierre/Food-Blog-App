@@ -1,10 +1,10 @@
 /* CSS Custom Properties */
 :root {
-  --white: #bbd4bc;
-  --tan-1: #99bbbb;
-  --tan-2: #95b8cf;
-  --tan-3: #81d8f3;
-  --tan-4: #73aaaa75;
+  --white: #bed6bee7;
+  --tan-1: #11422759;
+  --tan-2: #00070c;
+  --tan-3: #0a5347;
+  --tan-4: #cbcf8c75;
   --blue: #007Ff7;
   --text-light: #968c84;
   --text-dark: #615954;
@@ -24,6 +24,7 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+
 }
 
 code {
@@ -70,7 +71,7 @@ code {
   justify-content: space-around;
   align-items: center;
   background-color: var(--tan-1);
-  color: var(--text-dark);
+  color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
   padding: .6vmin;
@@ -94,7 +95,7 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--text-dark);
+  color: var(--tan-1);
 }
 
 label {
@@ -108,7 +109,7 @@ input {
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
-  color: var(--text-dark);
+  color: var(--tan-1);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }

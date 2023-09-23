@@ -1,19 +1,11 @@
 import {useState} from 'react';
-
 import { Routes, Route, Navigate } from 'react-router-dom';
-
 import NewOrderPage from './pages/NewOrderPage';
 import AuthPage from './pages/AuthPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 import NavBar from './components/NavBar/NavBar';
-import Create from './components/create/Create';
+import UpdateUserPage from './pages/UpdateUserPage';
 
-
-import FoodDetails from './components/foodDetails/FoodDetails';
-import Foods from './components/foods/Foods';
-import Footer from './components/footer/Footer';
-
-import NewsLetter from './components/newsletter/NewsLetter';
 
  
 
@@ -34,12 +26,8 @@ function App() {
         <Route path='/orders/new' element={ <NewOrderPage user={user } setUser={setUser}/> }/>
         <Route path='/orders' element={ <OrderHistoryPage user={user} setUser={setUser}/> }/>
         <Route path='/*' element={<Navigate to='/orders/new' />} />
-        <Route path='/create' element={<Create />}/>
         
-        <Route path='/foodDetails' element={<FoodDetails />}/>
-        <Route path='/foods' element={<Foods />}/>
-        <Route path='/footer' element={<Footer />}/>
-        <Route path='/newsletter' element={<NewsLetter />} />
+        {/* //<Route path='/update' */}
         
       </Routes>
       </>

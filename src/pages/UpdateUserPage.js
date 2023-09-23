@@ -35,13 +35,17 @@ return <div>
     <div className="form-container" onSubmit={handleSubmit}>
       <form autoComplete="off" >
         <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        <input type="text" name="name" value={formData.name} 
+        onChange={handleChange} required />
         <label>Email:</label>
-        <input type="text" name="email" value={formData.email} onChange={handleChange} required />
+        <input type="text" name="email" value={formData.email} 
+        onChange={handleChange} required />
         <label>Password:</label>
-        <input type="text" name="password" value={formData.password} onChange={handleChange} required />
+        <input type="text" name="password" value={formData.password} 
+        onChange={handleChange} required />
         <label>Confirm:</label>
-        <input type="text" name="confirm" value={formData.confirm} onChange={handleChange} required />
+        <input type="text" name="confirm" value={formData.confirm} 
+        onChange={handleChange} required />
         <button type='submit' disabled={disable}>Update Password</button>
       </form>
 

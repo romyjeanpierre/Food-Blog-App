@@ -3,13 +3,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: var(--white);
+    background-color: var(--dark);
     border-radius: 2vmin;
   }
   
   .AuthPage h3 {
     margin-top: 4vmin;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-dark);
     cursor: pointer;
   }
