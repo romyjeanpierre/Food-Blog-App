@@ -34,6 +34,9 @@ The application uses the following dependencies:
 - Bcrypt: Library for hashing and salting passwords.
 
 
+## ERD and Wireframe 
+[Food Blog App ERD[2].pdf](https://github.com/romyjeanpierre/Food-Blog-App/files/12717577/Food.Blog.App.ERD.2.pdf)
+
 
 
 ## Getting Started - Setup & Running app
