@@ -123,6 +123,9 @@ The application uses the following dependencies:
     - Once the user click on the delete button, they should receive a confirmation message to verify teh user's intention.
     - work on the CSS
 
+## 
+![snippet of trello board](https://github.com/romyjeanpierre/Food-Blog-App/assets/136476463/f89459f6-20bd-49b6-8cdf-044660126c5a)
+
 
 
 ## Acknowledgments
