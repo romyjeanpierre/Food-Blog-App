@@ -7,3 +7,11 @@
     .UserLogOut .email {
       font-size: smaller;
     }
+
+    img {
+      width: 40em;
+      height: 12em;
+      border: 2px solid, black; 
+      border-radius: 50px; 
+  }
+  

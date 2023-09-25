@@ -16,7 +16,7 @@ export default function NewOrderPage({ user, setUser }) {
   const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
   const navigate = useNavigate();
-console.log(user);
+  console.log(user);
 
 
   useEffect(function() {

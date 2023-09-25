@@ -23,22 +23,20 @@ function NavBar({ user, setUser }) {
             alt="RommY Logo"
             className="rounded-3xl mx-auto w-2/3 md:w-3/ font-burtons border shadow-2xl shadow-white-200 hover:shadow-cyan-500"
           />
-      <h2>Welcome, {user.name} to RommY</h2>
+      <h2>Welcome {user.name} to ROMMY Marketplace</h2>
       <Link to="/orders">Order History</Link>
       &nbsp; | &nbsp;
       <Link to="/orders/new">New Order</Link> 
       &nbsp; | &nbsp;
       <Link to="/items/new">Create Grocery Item</Link> 
       &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Logout</Link>
+      <Link onClick={handleLogOut}>Logout</Link>
       &nbsp; | &nbsp;
-      <Link to='updateUserPassword'>Update Account</Link>
+      <Link to='/user/update'>Update Account</Link>
       &nbsp; | &nbsp;
-      <Link to='' onClick={deleteUser}>Delete Account </Link>
+      <Link onClick={deleteUser}>Delete Account </Link>
     </nav>
   );
 }
 
 export default NavBar;
-
-

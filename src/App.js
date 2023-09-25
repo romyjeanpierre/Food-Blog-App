@@ -6,10 +6,6 @@ import OrderHistoryPage from './pages/OrderHistoryPage';
 import NavBar from './components/NavBar/NavBar';
 import UpdateUserPage from './pages/UpdateUserPage';
 
-
- 
-
-
 import { getUser } from './utilities/users-service';
 
 import './App.css';
@@ -25,7 +21,8 @@ function App() {
       <Routes>
         <Route path='/orders/new' element={ <NewOrderPage user={user } setUser={setUser}/> }/>
         <Route path='/orders' element={ <OrderHistoryPage user={user} setUser={setUser}/> }/>
-        <Route path='/*' element={<Navigate to='/orders/new' />} />
+        <Route path='/user/update' element={ <UpdateUserPage user={user} /> }/>
+        <Route path='/*' element={ <Navigate to='/orders/new'/> }/>
         
         {/* //<Route path='/update' */}
         

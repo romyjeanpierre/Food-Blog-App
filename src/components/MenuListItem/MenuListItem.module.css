@@ -37,3 +37,8 @@
     text-align: center;
     color: var(--text-light);
   }
+
+  .image {
+    width: 10rem;
+    height: 10rem;
+  }

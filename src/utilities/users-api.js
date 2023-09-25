@@ -13,7 +13,7 @@ export function login(credentials) {
 
 export function updateUserPassword(userData, id){
   console.log(userData,id)
-  return sendRequest(`${BASE_URL}/${id}`, 'PUT, userData')
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT', userData)
 }
 
 export function deleteUser(id){

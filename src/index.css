@@ -6,8 +6,8 @@
   --tan-3: #0a5347;
   --tan-4: #cbcf8c75;
   --blue: #007Ff7;
-  --text-light: #968c84;
-  --text-dark: #615954;
+  --text-light: #141414;
+  --text-dark: #131212;
 }
 
 *, *:before, *:after {
@@ -84,6 +84,7 @@ code {
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
+  color: #0a5347;
 }
 
 p.error-message {
@@ -95,7 +96,8 @@ form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
-  color: var(--tan-1);
+  color: #0a5347;
+ 
 }
 
 label {
@@ -109,13 +111,14 @@ input {
   font-size: 2vmin;
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
-  color: var(--tan-1);
+  color: #0a5347;
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
 input:focus {
   border-color: var(--orange);
+  color: #0a5347;
 }
 
 button, a.button {
@@ -131,24 +134,29 @@ button, a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
+  color: green;
 }
 
 button.btn-sm {
   font-size: 1.5vmin;
   padding: .6vmin .8vmin;
+  color: #0a5347;
 }
 
 button.btn-xs {
   font-size: 1vmin;
   padding: .4vmin .5vmin;
+  color: #0a5347;
 }
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: var(--tan-4);
+  color: #0a5347;
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+  color: #0a5347;
 }

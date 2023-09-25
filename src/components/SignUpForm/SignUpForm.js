@@ -2,6 +2,7 @@ import { useState } from "react";
 import {signUp} from '../../utilities/users-service';
 import { useNavigate } from "react-router-dom";
 
+
 function SignUpForm({setUser}) {
   const [formData, setFormData] = useState({
     name: "",
@@ -43,6 +44,8 @@ function SignUpForm({setUser}) {
   return (
     <div>
       <div className="form-container">
+
+
         <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={formData.name} onChange={handleChange} required/>

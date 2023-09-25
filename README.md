@@ -17,7 +17,7 @@ This is a full stack food/grocery ordering application built using the MERN (Mon
 
 ## Prerequisites
 
-Before running the app, ensure you ave the following installed: 
+Before running the app, ensure you have the following installed: 
 * Node.js
 * MongoDB 
 

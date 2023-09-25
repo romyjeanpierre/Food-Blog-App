@@ -31,7 +31,7 @@ async function deleteUser(req,res) {
 
 //* Update User's password
 async function updateUserPassword(req, res){
-    const {id} = res.params
+    const { id } = req.params
     req.body.password = await bcrypt.hash(req.body.password, SALT_ROUNDS)
     try {
         await User.findByIdAndUpdate(id, req.body)

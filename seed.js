@@ -3,6 +3,42 @@ require('./config/database');
 
 const Category = require('./models/category');
 const Item = require('./models/item');
+const createApi = require('unsplash-js').createApi;
+
+const unsplash = new createApi({
+  accessKey: process.env.UNSPLASH_ACCESS_KEY,
+})
+
+const fetchImageFromUnsplash = async (query) => {
+  return await unsplash.search.getPhotos({
+    query: query,
+    page: 1,
+    perPage: 10,
+    orderBy: 'relevant'
+  })
+  .then(result => {
+    if (result.errors) {
+
+      console.log('error occured: ', result.errors[0]);
+
+    } else {
+
+      const feed = result.response;
+
+      const { results } = feed;
+      const photo = results[0];
+      const photoUrl = photo.urls.regular;
+      console.log('photo: ', photo);
+      return photoUrl;
+
+    }
+  })
+  .catch(err => {
+
+    console.log('error occured: ', err);
+
+  });
+}
 
 (async function() {
 
@@ -17,53 +53,110 @@ const Item = require('./models/item');
     {name: 'Seafood', sortOrder: 70},
     {name: 'Bakery', sortOrder: 80},
     {name: 'Beverages', sortOrder: 90},
+    {name: 'Hot Food', sortOrder: 100},
   ]);
+
+  const categoryItems = [
+    {
+      category: categories[0],
+      items: [
+        { name: "Guava", price: 1.95 },
+        { name: 'Bananas', price: 0.89 },
+        { name: 'Apples', price: 1.29 },
+        { name: 'Spinach', price: 1.49 },
+      ],
+    },
+    {
+      category: categories[1],
+      items: [
+        { name: 'Frozen Pizza', price: 5.99 },
+        { name: 'Ice Cream', price: 4.49 },
+        { name: 'Frozen Vegetables', price: 1.99 },
+      ],
+    },
+    {
+      category: categories[2],
+      items: [
+        { name: 'Chicken Breast', price: 6.99 },
+        { name: 'Ground Beef', price: 4.99 },
+        { name: 'Pork Chops', price: 7.99 },
+      ]
+    },
+    {
+      category: categories[3],
+      items: [
+        { name: 'Potato Chips', price: 2.99 },
+        { name: 'Chocolate Bar', price: 1.49 },
+        { name: 'Pretzels', price: 2.49 },
+      ]
+    },
+    {
+      category: categories[4],
+      items: [
+        { name: 'Turkey Sandwich', price: 6.99 },
+        { name: 'Cheese Platter', price: 12.99 },
+        { name: 'Sushi', price: 9.99 },
+      ]
+    },
+    {
+      category: categories[5],
+      items: [
+        { name: 'Milk', price: 2.99 },
+        { name: 'Cheese', price: 3.49 },
+        { name: 'Yogurt', price: 1.49 },
+      ]
+    },
+    {
+      category: categories[6],
+      items: [
+        { name: 'Salmon', price: 9.99 },
+        { name: 'Shrimp', price: 12.99 },
+        { name: 'Tilapia', price: 7.99 },
+      ]
+    },
+    {
+      category: categories[7],
+      items: [
+        { name: 'Croissant', price: 1.49 },
+        { name: 'Baguette', price: 2.99 },
+        { name: 'Donuts', price: 3.99 },
+      ]
+    },
+    {
+      category: categories[8],
+      items: [
+        { name: 'Soda', price: 1.99 },
+        { name: 'Coffee', price: 2.99 },
+        { name: 'Water Bottle', price: 0.99 },
+      ]
+    },
+    {
+      category: categories[9],
+      items: [
+        { name: 'Fried Chicken', price: 9.99 },
+        { name: 'Spaghetti', price: 8.99 },
+        { name: 'Jollof Rice', price: 10.99 },
+      ]
+    }
+  ];
+
+  const allItems = [];
+
+  for (const { category, items } of categoryItems) {
+    const itemWithImages = await Promise.all(
+      items.map(async (item) => {
+        const imageUrl = await fetchImageFromUnsplash(item.name);
+        console.log('imageUrl: ', imageUrl)
+        return { ...item, image: imageUrl, category: category };
+      })
+    );
+    allItems.push(...itemWithImages);
+  }
 
   await Item.deleteMany({});
-  const items = await Item.create([
-    {name: 'cucumber', emoji: '🍔', category: categories[2], price: 5.95},
-    {name: 'Ground Beef 80%', emoji: '🍜',  category: categories[2], price: 11.95},
-    {name: 'Fried Rice', emoji: '🍘', category: categories[2], price: 9.95},
-    {name: 'Jollof Rice', emoji: '🍛', category: categories[2], price: 9.95},
-    {name: 'Veggy Brochette', emoji: '🍢', category: categories[8], price: 3.95},
-    {name: 'Sushi', emoji: '🍣', category: categories[2], price: 5.95},
-    {name: 'Beef', emoji: '🍖', category: categories[2], price: 9.95},
-    {name: 'Croissant', emoji: '🥐', category: categories[0], price: 5.95},
-    {name: 'Fried Egg', emoji: '🍳', category: categories[0], price: 5.95},
-    {name: 'Doughnut', emoji: '🍩', category: categories[0], price: 5.95},
-    {name: 'Turkey Sandwich', emoji: '🥪', category: categories[0], price: 6.95},
-    {name: 'Hot Dog', emoji: '🌭', category: categories[2], price: 3.95},
-    {name: 'Crab Plate', emoji: '🦀', category: categories[7], price: 14.95},
-    {name: 'Soft drink', emoji:'🥤', category: categories[3], price: 2.95},
-    {name: 'Fried Shrimp', emoji: '🍤', category: categories[7], price: 13.95},
-    {name: 'Whole Lobster', emoji: '🦞', category: categories[7], price: 25.95},
-    {name: 'Taco', emoji: '🌮', category: categories[5], price: 1.95},
-    {name: 'Burrito', emoji: '🌯', category: categories[5], price: 4.95},
-    {name: 'Pizza Slice', emoji: '🍕', category: categories[4], price: 3.95},
-    {name: 'Spaghetti', emoji: '🍝', category: categories[4], price: 7.95},
-    {name: 'Garlic Bread', emoji: '🍞', category: categories[4], price: 1.95},
-    {name: 'French Fries', emoji: '🍟', category: categories[8], price: 2.95},
-    {name: 'Popcorn', emoji: '🍿', category: categories[8], price: 2.95},
-    {name: 'French Fries', emoji: '🥨', category: categories[2], price: 2.95},
-    {name: 'Sweet Potato', emoji: '🍠', category: categories[8], price: 2.95},
-    {name: 'Green Salad', emoji: '🥗', category: categories[4], price: 3.95},
-    {name: 'Ice Cream', emoji: '🍨', category: categories[1], price: 1.95},
-    {name: 'Cup Cake', emoji: '🧁', category: categories[1], price: 0.95},
-    {name: 'Custard', emoji: '🍮', category: categories[1], price: 2.95},
-    {name: 'Strawberry Shortcake', emoji: '🍰', category: categories[1], price: 3.95},
-    {name: 'Stuffed Flatbread', emoji: '🥙', category: categories[5], price: 9.95},
-    {name: 'Milk', emoji: '🥛', category: categories[3], price: 0.95},
-    {name: 'Coffee', emoji: '☕', category: categories[3], price: 0.95},
-    {name: 'Mai Tai', emoji: '🍹', category: categories[3], price: 8.95},
-    {name: 'Beer', emoji: '🍺', category: categories[3], price: 3.95},
-    {name: 'Wine', emoji: '🍷', category: categories[3], price: 7.95},
-    {name: 'Fried Chicken', emoji: '🍗', category: categories[2], price: 9.95},
-    {name: 'Pancakes', emoji: '🥞', category: categories[0], price: 7.95},
-    {name: 'Bacon', emoji: '🥓', category: categories[0], price: 3.95},
-    {name: 'Tea', emoji: '🍵', category: categories[3], price: 2.95},
-  ]);
+  const createdItems = await Item.create(allItems);
 
-  console.log(items)
+  console.log(createdItems);
 
   process.exit();
 

@@ -1,6 +1,7 @@
 require('dotenv').config();
 require('./config/database'); // connects to db
 const express = require('express');
+const cors = require('cors');
 const path = require('path'); // node module
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -13,6 +14,8 @@ const PORT = process.env.PORT || 3001;
 
 
 //* Config
+// CORS middleware
+app.use(cors());
 // Logger middleware
 app.use(logger('dev'));
 // JSON payload middleware (for data coming from frontend functions)
