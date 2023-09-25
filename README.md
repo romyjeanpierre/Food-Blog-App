@@ -1,9 +1,11 @@
 # Full Stack Food Ordering App (MERN)
+![logomod3](https://github.com/romyjeanpierre/Food-Blog-App/assets/136476463/49917dd1-9f77-410f-a3f0-debaae164f61)
+
 * [Deployed App](https://rommy-grocery-marketplace.onrender.com)
 
 ## About The Project
 
-This is a full stack food/grocery ordering application built using the MERN (MongoDB, Express, React, Node) stack. It allows users to sign up, log in, create new orders, view order history, update their account information, and delete their account. The communication between the frontend and backend is done via AJAX, and token-based authentication is implemented using Jsonwebtoken, react-router-dom, and bcrypt.
+This is a full stack food/grocery ordering application built using the MERN (MongoDB, Express, React, Node) stack. It allows users to sign up, log in, create new orders, view order history, update their account information, and delete their account. The communication between the frontend and backend is done via AJAX, and token-based authentication is implemented using Jsonwebtoken, react-router-dom, and bcrypt.A third party API was utilized for the images. 
 
 ## Features
 
@@ -35,7 +37,9 @@ The application uses the following dependencies:
 
 
 ## ERD and Wireframe 
-[Food Blog App ERD[2].pdf](https://github.com/romyjeanpierre/Food-Blog-App/files/12717577/Food.Blog.App.ERD.2.pdf)
+* [Food Blog App ERD[2].pdf](https://github.com/romyjeanpierre/Food-Blog-App/files/12717577/Food.Blog.App.ERD.2.pdf)
+ 
+* ![wireframe food ordering](https://github.com/romyjeanpierre/Food-Blog-App/assets/136476463/3f91af18-22ad-4fd3-9ef6-5135965cd5b9)
 
 
 
@@ -116,6 +120,8 @@ The application uses the following dependencies:
 ## Additional features to be added
     - Blog Page for users to submit recipes 
     - Add weekly newsletter
+    - Once the user click on the delete button, they should receive a confirmation message to verify teh user's intention.
+    - work on the CSS
 
 
 
