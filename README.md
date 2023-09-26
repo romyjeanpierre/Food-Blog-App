@@ -121,12 +121,16 @@ The application uses the following dependencies:
 
 
 ## Additional features to be added
+
+
     - Blog Page for users to submit recipes 
     - Add weekly newsletter
     - Once the user click on the delete button, they should receive a confirmation message to verify teh user's intention.
     - work on the CSS
 
-## 
+## Trello Board
+
+
 *[Trello Board](https://trello.com/b/krPt5roe/food-ordering-app)
 
 
